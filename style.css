@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+    --neon-green: #39ff14;
+    --neon-pink: #ff00ff;
+    --neon-blue: #00ffff;
+    --dark-bg: #050505;
+    --grid-line: #1a1a1a;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+}
+
+/* UI Layer */
+.ui-layer {
+    position: absolute;
+    top: 20px;
+    width: 90vmin;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.score-board {
+    display: flex;
+    gap: 20px;
+    font-size: 1.2rem;
+    background: var(--glass-bg);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--neon-blue);
+    backdrop-filter: blur(5px);
+}
+
+/* Game Board */
+#board {
+    background-color: #000;
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 5vmin 5vmin;
+    width: 90vmin;
+    height: 90vmin;
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 20px var(--neon-blue), inset 0 0 20px var(--neon-blue);
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+    border-radius: 5px;
+}
+
+/* Snake & Food */
+.head {
+    background: var(--neon-green);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--neon-green);
+    z-index: 2;
+}
+
+.snake {
+    background: rgba(57, 255, 20, 0.7);
+    border: 1px solid var(--neon-green);
+    border-radius: 2px;
+    box-shadow: 0 0 5px var(--neon-green);
+}
+
+.food {
+    background: var(--neon-pink);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--neon-pink);
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.8);
+        box-shadow: 0 0 10px var(--neon-pink);
+    }
+
+    to {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px var(--neon-pink);
+    }
+}
+
+/* Modals */
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 40px;
+    border: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 0 30px var(--neon-blue);
+}
+
+.modal-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* Yay Animation */
+#newHighScoreScreen h1 {
+    animation: yayPulse 0.5s infinite alternate;
+}
+
+@keyframes yayPulse {
+    from {
+        transform: scale(1);
+        text-shadow: 0 0 10px var(--neon-pink);
+    }
+
+    to {
+        transform: scale(1.1);
+        text-shadow: 0 0 30px var(--neon-pink), 0 0 10px white;
+    }
+}
+
+.modal-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background: transparent;
+    color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+.btn:hover {
+    background: var(--neon-green);
+    color: black;
+    box-shadow: 0 0 30px var(--neon-green);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .score-board {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+    }
+
+    .modal-content h1 {
+        font-size: 2rem;
+    }
+
+    .modal-content p {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        padding: 10px 25px;
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnakeMania - Ek Gaming Katha</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <div class="ui-layer">
+            <div class="score-board">
+                <div class="score-item">SCORE: <span id="scoreBox">0</span></div>
+                <div class="score-item">HIGH SCORE: <span id="hiscoreBox">0</span></div>
+            </div>
+        </div>
+
+        <div id="board"></div>
+
+        <!-- Start Screen Overlay -->
+        <div id="startScreen" class="modal">
+            <div class="modal-content">
+                <h1>SNAKE MANIA</h1>
+                <p>Use Arrow Keys to Move</p>
+                <button id="startBtn" class="btn">START GAME</button>
+            </div>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="gameOverScreen" class="modal hidden">
+            <div class="modal-content">
+                <h1>GAME OVER</h1>
+                <p>Your Score: <span id="finalScore">0</span></p>
+                <button id="restartBtn" class="btn">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <!-- Game Won Overlay -->
+        <div id="gameWonScreen" class="modal hidden">
+            <div class="modal-content">
+                <h1 style="color: var(--neon-green);">YOU WON!</h1>
+                <p>Amazing! You filled the board!</p>
+                <p>Score: <span id="wonScore">0</span></p>
+                <button id="playAgainBtn" class="btn">PLAY AGAIN</button>
+            </div>
+        </div>
+
+        <!-- New High Score Overlay -->
+        <div id="newHighScoreScreen" class="modal hidden">
+            <div class="modal-content">
+                <h1 style="color: var(--neon-pink);">YAY!</h1>
+                <p>New High Score!</p>
+                <p>Score: <span id="newHighScoreValue">0</span></p>
+                <button id="continueBtn" class="btn">CONTINUE</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
