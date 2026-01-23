@@ -46,7 +46,6 @@ window.addEventListener('keydown', handleInput);
 startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener('click', resetGame);
 playAgainBtn.addEventListener('click', resetGame);
-continueBtn.addEventListener('click', continueGame);
 
 function startGame() {
     startScreen.classList.add('hidden');
@@ -268,21 +267,17 @@ function gameWon() {
 }
 
 function showNewHighScore() {
-    isPlaying = false;
-    musicSound.pause();
     highScoreShown = true;
     newHighScoreValue.innerHTML = score;
     newHighScoreScreen.classList.remove('hidden');
-    // Optional: Play a win sound or yay sound here if available
+
+    // hide automatically, game keeps running
+    setTimeout(() => {
+        newHighScoreScreen.classList.add('hidden');
+    }, 1500);
 }
 
-function continueGame() {
-    newHighScoreScreen.classList.add('hidden');
-    isPlaying = true;
-    musicSound.play().catch(() => { });
-    // Reset move sound buffer so it doesn't play immediately
-    moveSound.currentTime = 0;
-}
+
 
 function draw() {
     board.innerHTML = "";
