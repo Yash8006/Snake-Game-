@@ -4,6 +4,11 @@
   "icons": [
     {
       "src": "https://play-lh.googleusercontent.com/TRA73lTIzi73huCkSF58FFUk_RM4C2Zu5ZOJuLM6BotUGZ4qOEXQigCUjCDpTRQMWW8I",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://play-lh.googleusercontent.com/TRA73lTIzi73huCkSF58FFUk_RM4C2Zu5ZOJuLM6BotUGZ4qOEXQigCUjCDpTRQMWW8I",
       "sizes": "512x512",
       "type": "image/png"
     }
