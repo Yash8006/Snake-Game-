@@ -1,0 +1,15 @@
+{
+  "short_name": "Snake",
+  "name": "Snake Game",
+  "icons": [
+    {
+      "src": "https://play-lh.googleusercontent.com/TRA73lTIzi73huCkSF58FFUk_RM4C2Zu5ZOJuLM6BotUGZ4qOEXQigCUjCDpTRQMWW8I",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "black",
+  "background_color": "white"
+}
